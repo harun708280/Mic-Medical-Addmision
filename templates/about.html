@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}About{% endblock title %}
+{% block content %}
+  <section class="about_section layout_padding">
+    <div class="container  ">
+      <div class="row">
+        {% for ab in about %}
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="{{ab.image.url}}" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                About <span>Hospital</span>
+              </h2>
+            </div>
+            <p>
+              {{ab.shortInformation}}
+
+              <br>
+              {{ab.Main_information}}
+            </p>
+            
+            <a href="">
+              Read More
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endblock content %}
+  <!-- end about section -->
+
+
+ 

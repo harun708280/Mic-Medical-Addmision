@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Register{% endblock title %}
+{% block content %}
+<body style="background-image: url('{% static "images/slider-img.jpg" %}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div class="container" style="max-width: 400px; margin: 0 auto; margin-top: 100px; background-color: rgba(255, 255, 255, 0.8); padding: 20px; border-radius: 8px; box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);">
+        <h2 style="text-align: center;">Register</h2>
+        {% if messages %}
+                                <ul class="messages">
+                                    {% for message in messages %}
+                                        <li class="{{ message.tags }}">
+                                            <h6>
+                                                {{ message }}
+                                            </h6>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+        <form  method="POST">
+            {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" name='username' class="form-control" id="username" placeholder="Enter username" required=''>
+        </div>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" name='email' class="form-control" id="email" placeholder="Enter email" required=''>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name='password1' class="form-control" id="password" placeholder="Password" required=''>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" name='password2' class="form-control" id="confirmPassword" placeholder="Confirm Password" required=''>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" style="background-color: #00c6a9; border-color: #00c6a9; ">Register</button>
+        <p>Do you have an account? <a href="{% url 'login' %}">Sing-in</a></p>
+        </form>
+  </div>
+
+  {% endblock content %}
