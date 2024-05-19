@@ -14,6 +14,7 @@ def home(request):
     about = AboutHospital.objects.all().order_by('-id')[:1]
     doctor = Doctor.objects.all()
     deparment = Deparment.objects.all()
+    baner=benner.objects.all()
     
     # Initialize variables
     names = ''
@@ -85,3 +86,12 @@ def apoinment_delate(request,id):
 
 def Error(request):
     return render(request,'404.html')
+
+def tretment(request):
+    tretment=Tretment.objects.all()
+    return render(request,'treatment.html',locals())
+
+class tretmentView(View):
+    def get(self,request,pk):
+     det=Tretment.objects.get(pk=pk)
+     return render(request,'td.html',locals())

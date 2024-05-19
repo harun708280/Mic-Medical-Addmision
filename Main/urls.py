@@ -13,5 +13,7 @@ urlpatterns = [
     path('apoinment-delate/<int:id>/', views.apoinment_delate, name='apoinment-delate'),
     path('appointments/',views. appointment_details, name='appointment_details'),
     path('appointments/pdf/<int:appointment_id>/',views. generate_pdf, name='generate_pdf'),
+    path('treatment/',views.tretment,name='treatment'),
+    path('tretment-details/<int:pk>/',views.tretmentView.as_view(),name='tretment-details')
 
 ]+static (settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -1,21 +1,23 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}about{% endblock title %}
+{% block title %}tretment{% endblock title %}
 {% block content %}
 <div class="container">
   <div class="row">
       <div class="col-md-6">
-          <div class="img-box">
-              <img src="{{ details.image.url }}" alt="">
-          </div>
+        <div class="img-box">
+            <img src="{{ det.image.url }}" alt="" style="width: 406px; height: 379px;">
+        </div>
+        
       </div>
       <div class="col-md-6">
           <div class="detail-box">
               <div class="heading_container">
                   <h2>About <span>Hospital</span></h2>
               </div>
-              <h6>{{ details.shortInformation }}</h6>
-              <p>{{ details.Main_information}}</p> 
+              <h4>{{det.title}}</h4>
+              <h6> {{ det.sort_information}}</h6>
+              <p>{{ det.long_information}}</p> 
           </div>
       </div>
   </div>

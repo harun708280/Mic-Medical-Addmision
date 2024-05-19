@@ -9,6 +9,7 @@
       <div id="customCarousel1" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
+            
             <div class="container ">
               <div class="row">
                 <div class="col-md-6">
@@ -40,8 +41,9 @@
               </div>
             </div>
           </div>
+          {% for b in baner %}
           <div class="carousel-item">
-            <div class="container ">
+            <div class="container">
               <div class="row">
                 <div class="col-md-6">
                   <div class="detail-box">
@@ -66,12 +68,14 @@
                 </div>
                 <div class="col-md-6">
                   <div class="img-box">
-                    <img src="images/slider-img.jpg" alt="">
+                    <img src="{{ b.image.url }}" alt="" style="width: 1000px; height: 300px;">
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          {% endfor %}
+          
           <div class="carousel-item">
             <div class="container ">
               <div class="row">
