@@ -35,7 +35,7 @@ class Apoinment(models.Model):
     Department=models.CharField(max_length=50)
     Phone=models.CharField( max_length=50)
     Symptoms=models.CharField( max_length=50)
-    upload_date=models.DateField( auto_now_add=False)
+    upload_date=models.DateField( auto_now_add=True)
     Apoinment_date=models.CharField( max_length=50)
     
     def __str__(self):

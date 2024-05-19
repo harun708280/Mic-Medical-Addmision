@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Appointment{% endblock title %}
+{% block content %}
+{% for ap in appointments %}
+<hr>
+<div class="container" style="background-image: url('{% static "images/slider-img.jpg" %}'); background-size: 800px 600px; background-position: center; background-repeat: no-repeat;">
+    <h1 align="center">
+      Mico 
+      <span>
+        Hospital
+      </span>
+    </h1>
+    <h2>Appointments</h2>
+    
+      <div class="appointment">
+        <p><strong>Serial Number:</strong> 0121{{ ap.id }}</p>
+        <p><strong>User:</strong> {{ ap.user }}</p>
+        <p><strong>Patient Name:</strong> {{ ap.name }}</p>
+        <p><strong>Symptoms:</strong> {{ ap.Symptoms }}</p>
+        <p><strong>Doctor's Name:</strong> {{ ap.Doctor }}</p>
+        <p><strong>Department's Name:</strong> {{ ap.Department }}</p>
+        <p><strong>Phone Number:</strong> {{ ap.Phone }}</p>
+        <p><strong>Appointment Date:</strong> {{ ap.Apoinment_date }}</p>
+        <p><strong>Applied Date:</strong> {{ ap.upload_date }}</p>
+        <div class="actions">
+          {% comment %} <a href="{% url "apoinment-delate" ap.id %}" class="btn btn-black btn-sm">X</a> {% endcomment %}
+         <a href="{% url "apoinment-delate" ap.id  %}"> <button type="button" class="btn btn-danger">
+            <i class="bi bi-trash"></i> Delete
+        </button></a>
+          <a href="{% url 'generate_pdf' ap.id %}" class="btn-download btn btn-success">Download PDF</a>
+        </div>
+      </div>
+      <br>
+    
+  </div>
+  <hr>
+  <br> <br>
+{% endfor %}
+{% endblock content %}

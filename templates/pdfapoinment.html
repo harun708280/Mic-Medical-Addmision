@@ -1,0 +1,30 @@
+
+{% load static %}
+{% block title %}Appointment{% endblock title %}
+{% block content %}
+<div class="container" style="background-image: url('data:image/jpeg;base64,{{ image_base64_data }}'); background-size: 800px 600px; background-position: center; background-repeat: no-repeat;">
+    <h1 align="center">
+        Mico 
+        <span>
+            Hospital
+        </span>
+    </h1>
+    <h2>Appointments</h2>
+    <!-- Sample appointment -->
+    <div class="appointment" >
+       
+        <p><strong>Serial Number:</strong> 0121{{appointment.id}}</p>
+        <p><strong>User:</strong> {{appointment.user}}</p>
+        <p><strong>Patient Name:</strong> {{appointment.name}}</p>
+        <p><strong>Symptoms:</strong> {{appointment.Symptoms}}</p>
+        <p><strong>Doctor's Name:</strong> {{appointment.Doctor}}</p>
+        <p><strong>Department's Name:</strong> {{appointment.Department}}</p>
+        <p><strong>Phone Number:</strong> {{appointment.Phone}}</p>
+        <p><strong>Appointment Date:</strong> {{appointment.Apoinment_date}}</p>        
+        <p><strong>Applied Date:</strong> {{appointment.upload_date}}</p>
+        
+       
+    </div>
+    <!-- Add more appointments as needed -->
+</div>
+{% endblock content %}
