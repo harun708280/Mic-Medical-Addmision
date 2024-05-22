@@ -25,10 +25,16 @@
         <p><strong>Applied Date:</strong> {{ ap.upload_date }}</p>
         <div class="actions">
           {% comment %} <a href="{% url "apoinment-delate" ap.id %}" class="btn btn-black btn-sm">X</a> {% endcomment %}
-         <a href="{% url "apoinment-delate" ap.id  %}"> <button type="button" class="btn btn-danger">
-            <i class="bi bi-trash"></i> Delete
-        </button></a>
+          <a href="{% url "update" ap.id %}" class="btn btn-primary">
+            <i class="bi bi-pencil"></i> Update
+          </a>
+          <a href="{% url "apoinment-delate" ap.id %}"> 
+            <button type="button" class="btn btn-danger">
+              <i class="bi bi-trash"></i> Delete
+            </button>
+          </a>
           <a href="{% url 'generate_pdf' ap.id %}" class="btn-download btn btn-success">Download PDF</a>
+          
         </div>
       </div>
       <br>

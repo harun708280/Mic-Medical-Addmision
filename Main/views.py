@@ -84,6 +84,25 @@ def apoinment_delate(request,id):
     apoinment.delete()
     return redirect('appointment_details')
 
+def Update(request,id):
+    appointment=Apoinment.objects.get(id=id)
+    return render(request,'update.html',locals())
+
+def UpdateSave(request,id):
+    doctor = Doctor.objects.all()
+    deparment = Deparment.objects.all()
+    appoinment = Apoinment.objects.get(id=id)
+    if request.method == 'POST':
+        appoinment.name = request.POST.get('name')
+        appoinment.Symptoms = request.POST.get('Symptoms')
+        appoinment.Doctor = request.POST.get('Doctor')
+        appoinment.Department = request.POST.get('Department')
+        appoinment.Phone = request.POST.get('Phone')
+        appoinment.Apoinment_date = request.POST.get('Apoinment_date')
+        appoinment.save()
+        return redirect('appointment_details')
+    
+    return render(request,'update.html',locals())
 def Error(request):
     return render(request,'404.html')
 

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Update Appointment{% endblock title %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Update Appointment</h2>
+    <form action="{% url "update-save" appointment.id %}" method="post">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="name" class="form-label">Patient Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ appointment.name }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="Symptoms" class="form-label">Symptoms</label>
+            <input type="text" class="form-control" id="Symptoms" name="Symptoms" value="{{ appointment.Symptoms }}" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="Doctor" class="form-label">Doctor's Name</label>
+            <input type="text" class="form-control" id="Doctor" name="Doctor" value="{{ appointment.Doctor }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="Department" class="form-label">Department's Name</label>
+            <input type="text" class="form-control" id="Department" name="Department" value="{{ appointment.Department }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="Phone" class="form-label">Phone Number</label>
+            <input type="text" class="form-control" id="Phone" name="Phone" value="{{ appointment.Phone }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="Apoinment_date" class="form-label">Appointment Date</label>
+            <input type="date" class="form-control" id="Apoinment_date" name="Apoinment_date" value="{{ appointment.Apoinment_date }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+{% endblock content %}
